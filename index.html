@@ -6,24 +6,43 @@
 <title>Events Radar — Disputes, Investigations & Financial Crime</title>
 <style>
   :root {
-    --bg: #faf9f7;
-    --panel: #ffffff;
-    --ink: #1a1f2e;
-    --ink-soft: #5a6478;
-    --ink-mute: #8a94a8;
-    --line: #e5e2dc;
-    --line-soft: #f0ede6;
-    --accent: #7c3a1d;
-    --accent-soft: #f4ebe3;
-    --teal: #2d5f5d;
-    --teal-soft: #e1ede9;
-    --gold: #a07925;
-    --gold-soft: #f5eedb;
-    --red: #8b2e2e;
-    --red-soft: #f3e3e1;
-    --shadow-sm: 0 1px 2px rgba(26,31,46,0.04);
-    --shadow: 0 1px 2px rgba(26,31,46,0.04), 0 4px 12px rgba(26,31,46,0.04);
-    --shadow-lg: 0 4px 24px rgba(26,31,46,0.12), 0 16px 48px rgba(26,31,46,0.08);
+    /* ---- A&M brand colours, as confirmed by user ---- */
+    --am-navy: #002B49;
+    --am-blue: #0085CA;
+    --am-white: #FFFFFF;
+
+    /* ---- Derived from the above for dark-theme surfaces/text ----
+       FLAGGED ASSUMPTION: these are not brand-specified values. They are
+       computed as darker/lighter/translucent variants of --am-navy and
+       --am-white so the whole scheme stays traceable to the two confirmed
+       hex codes. Replace with exact brand tokens if A&M's style guide
+       specifies them (e.g. approved tints, greys, or elevation surfaces). */
+    --bg: #001B2E;                       /* DERIVED: ~15% darker than --am-navy, page canvas */
+    --panel: var(--am-navy);             /* CONFIRMED: primary surface colour */
+    --line: rgba(255,255,255,0.14);      /* DERIVED: border, white-alpha over navy */
+    --line-soft: rgba(255,255,255,0.07); /* DERIVED: subtle border */
+    --ink: var(--am-white);              /* CONFIRMED: primary text */
+    --ink-soft: rgba(255,255,255,0.68);  /* DERIVED: "light grey" secondary text, implemented as white-alpha */
+    --ink-mute: rgba(255,255,255,0.42);  /* DERIVED: tertiary/muted text */
+    --accent: var(--am-blue);            /* CONFIRMED: secondary brand blue, interactive elements */
+    --accent-soft: rgba(0,133,202,0.18); /* DERIVED: accent tint for badges */
+
+    /* ---- Functional status/category tag colours ----
+       FLAGGED: these are NOT A&M brand colours. They are the original
+       design's functional colour-coding (category/format/flag badges),
+       brightened here only so they remain legible on the new dark
+       background. Confirm with brand/compliance if approved tagging
+       colours exist, or if these should be replaced with blue-only tints. */
+    --teal: #4FBDB5;
+    --teal-soft: rgba(79,189,181,0.16);
+    --gold: #E0B84A;
+    --gold-soft: rgba(224,184,74,0.16);
+    --red: #E2726B;
+    --red-soft: rgba(226,114,107,0.16);
+
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.30);
+    --shadow: 0 1px 2px rgba(0,0,0,0.30), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lg: 0 4px 24px rgba(0,0,0,0.45), 0 16px 56px rgba(0,0,0,0.40);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { height: 100%; }
@@ -45,6 +64,26 @@
     border-left: 1px solid var(--line);
     border-right: 1px solid var(--line);
   }
+  .am-banner {
+    background: var(--am-navy);
+    border-bottom: 3px solid var(--am-blue);
+    padding: 12px 28px;
+  }
+  .am-banner-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .am-banner-inner svg { height: 30px; width: auto; display: block; flex-shrink: 0; }
+  .am-banner-name {
+    font-family: Georgia, serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--am-white);
+    letter-spacing: 0.01em;
+  }
   .topbar {
     background: var(--panel);
     border-bottom: 1px solid var(--line);
@@ -54,26 +93,6 @@
     gap: 20px;
   }
   .brand { display: flex; align-items: center; gap: 10px; }
-  .brand-mark {
-    width: 28px; height: 28px;
-    background: var(--ink);
-    border-radius: 6px;
-    position: relative;
-    flex-shrink: 0;
-  }
-  .brand-mark::before, .brand-mark::after {
-    content: "";
-    position: absolute;
-    background: var(--gold);
-  }
-  .brand-mark::before { top: 7px; left: 7px; width: 14px; height: 2px; }
-  .brand-mark::after { top: 7px; left: 7px; width: 2px; height: 14px; }
-  .brand-mark span {
-    position: absolute; top: 13px; left: 13px;
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--panel);
-    display: block;
-  }
   .brand-name {
     font-family: Georgia, serif;
     font-size: 16px;
@@ -127,9 +146,9 @@
     cursor: pointer;
     transition: all 0.12s;
   }
-  .btn:hover { border-color: var(--ink-mute); background: #fcfbf7; }
+  .btn:hover { border-color: var(--ink-mute); background: rgba(255,255,255,0.06); }
   .btn-primary { background: var(--ink); color: var(--panel); border-color: var(--ink); }
-  .btn-primary:hover { background: #2a3141; border-color: #2a3141; }
+  .btn-primary:hover { background: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.85); }
   .page-header {
     padding: 22px 28px 18px;
     border-bottom: 1px solid var(--line);
@@ -201,7 +220,7 @@
   .filters {
     border-right: 1px solid var(--line);
     padding: 20px;
-    background: #fbfaf6;
+    background: rgba(255,255,255,0.03);
   }
   .filter-group { margin-bottom: 22px; }
   .filter-label {
@@ -457,7 +476,7 @@
     color: inherit;
     width: 100%;
   }
-  .event:hover { background: #fcfbf7; }
+  .event:hover { background: rgba(255,255,255,0.05); }
   .event-date { font-family: Georgia, serif; text-align: center; padding-top: 2px; }
   .event-date .month {
     font-size: 9.5px;
@@ -499,7 +518,7 @@
   .cal-month { border-bottom: 1px solid var(--line); }
   .cal-month:last-child { border-bottom: none; }
   .cal-month-header {
-    background: #fbfaf6;
+    background: rgba(255,255,255,0.04);
     padding: 10px 16px;
     font-family: Georgia, serif;
     font-weight: 600;
@@ -539,7 +558,7 @@
     background: var(--panel);
   }
   .cal-day:last-child { border-right: none; }
-  .cal-day.other { background: #fbfaf6; }
+  .cal-day.other { background: rgba(255,255,255,0.02); }
   .cal-day.today { background: var(--gold-soft); }
   .cal-day-num { font-size: 10.5px; font-weight: 500; color: var(--ink-soft); }
   .cal-day.today .cal-day-num { color: var(--gold); font-weight: 700; }
@@ -569,7 +588,7 @@
   .cal-event:hover { opacity: 0.88; }
   .cal-event.virtual { background: var(--teal); }
   .cal-event.hybrid { background: var(--gold); }
-  .cal-event.flagship { background: var(--ink); font-weight: 600; }
+  .cal-event.flagship { background: var(--am-blue); color: var(--am-navy); font-weight: 700; }
   .cal-more {
     font-size: 9.5px;
     color: var(--ink-mute);
@@ -580,7 +599,7 @@
   .side {
     border-left: 1px solid var(--line);
     padding: 20px;
-    background: #fbfaf6;
+    background: rgba(255,255,255,0.03);
     overflow-y: auto;
     max-height: calc(100vh - 200px);
   }
@@ -660,7 +679,7 @@
   .digest-label { color: var(--ink-soft); font-size: 11.5px; line-height: 1.4; }
   .modal-backdrop {
     position: fixed; inset: 0;
-    background: rgba(26,31,46,0.5);
+    background: rgba(0,0,0,0.65);
     display: none;
     z-index: 100;
     padding: 40px 20px;
@@ -725,7 +744,7 @@
   .modal-grid dd a:hover { text-decoration: underline; }
   .modal-foot {
     padding: 16px 26px;
-    background: #fbfaf6;
+    background: rgba(255,255,255,0.03);
     border-top: 1px solid var(--line);
     display: flex;
     justify-content: space-between;
@@ -795,10 +814,23 @@
 </style>
 </head>
 <body>
+<div class="am-banner">
+  <div class="am-banner-inner">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0.0 0.0 90.49 80.0" role="img" aria-label="Alvarez & Marsal logo">
+      <title>Alvarez &amp; Marsal</title>
+      <path d="M81.83,37.75H84.3L90,50.36H87.67L86,46.55H79.86l-1.72,3.81H75.89Zm3.59,7.44L83,39.62l-2.52,5.57h4.94Z" fill="#FFFFFF"/>
+      <path d="M78.59,56.09a2.6,2.6,0,0,1-.34-1.22,2.49,2.49,0,0,1,1-2A4.33,4.33,0,0,1,82,52a3.94,3.94,0,0,1,2.56.75,2.26,2.26,0,0,1,.92,1.79,2.88,2.88,0,0,1-.95,2.13,9.08,9.08,0,0,1-1.86,1.23l2.87,2.74q0.26-.69.37-1a7.3,7.3,0,0,0,.21-1H88A7.73,7.73,0,0,1,87.31,61c-0.36.74-.54,1-0.54,0.89l2.75,2.68H87.07l-1.48-1.4A7.51,7.51,0,0,1,84,64.29a6.74,6.74,0,0,1-2.94.61,5.08,5.08,0,0,1-3.57-1.05,3.23,3.23,0,0,1-1.11-2.37,3,3,0,0,1,1.09-2.38,12.41,12.41,0,0,1,2.47-1.45,6.77,6.77,0,0,1-1.34-1.55m4.65,7a4.2,4.2,0,0,0,1.32-1L81,58.69a10.66,10.66,0,0,0-2,1.23,2,2,0,0,0-.7,1.57A1.69,1.69,0,0,0,79.25,63a3.77,3.77,0,0,0,2,.54,4.43,4.43,0,0,0,2-.43M83.09,56a1.74,1.74,0,0,0,.63-1.3,1.22,1.22,0,0,0-.46-1,1.84,1.84,0,0,0-1.25-.4,1.9,1.9,0,0,0-1.65.63,1.14,1.14,0,0,0-.24.71,1.64,1.64,0,0,0,.36,1A10.16,10.16,0,0,0,81.69,57a8.35,8.35,0,0,0,1.4-.93" fill="#FFFFFF"/>
+      <path d="M75.4,67.28h3L83,77.94l4.52-10.66h3V79.89h-2V72.44c0-.26,0-0.68,0-1.28s0-1.23,0-1.91L84,79.89H81.87L77.33,69.25v0.38c0,0.31,0,.79,0,1.42s0,1.09,0,1.39v7.45h-2V67.28Z" fill="#FFFFFF"/>
+      <polygon points="47.41 0 0 80 10.96 80 49.52 12.14 49.52 80 58.12 80 58.12 0 47.41 0" fill="#FFFFFF"/>
+      <polygon points="46.24 23.14 37.59 38.34 37.59 80 46.24 80 46.24 23.14" fill="#0085CA"/>
+      <polygon points="60.95 23.14 69.59 38.34 69.59 80 60.95 80 60.95 23.14" fill="#0085CA"/>
+    </svg>
+    <span class="am-banner-name">Alvarez &amp; Marsal</span>
+  </div>
+</div>
 <div class="app">
   <header class="topbar">
     <div class="brand">
-      <div class="brand-mark"><span></span></div>
       <div><div class="brand-name">Events Radar</div></div>
       <div class="brand-sub">Disputes · Investigations · Financial Crime</div>
     </div>
@@ -1469,7 +1501,7 @@ function renderSources() {
           <col>
         </colgroup>
         <thead>
-          <tr style="background: #fbfaf6;">
+          <tr style="background: rgba(255,255,255,0.04);">
             <th style="padding: 10px 14px; text-align: left; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-mute);">Organisation</th>
             <th style="padding: 10px 14px; text-align: left; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-mute);">URL</th>
           </tr>
