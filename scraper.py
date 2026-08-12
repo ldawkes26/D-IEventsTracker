@@ -127,7 +127,7 @@ SOURCES = [
     # chapter pages worth adding that weren't verified here.
     {"name": "R3 (Association of Business Recovery Professionals)", "url": "https://www.r3.org.uk/events-training/"},
     {"name": "Insolvency Practitioners Association", "url": "https://insolvency-practitioners.org.uk/upcoming-events/"},
-    {"name": "Fraud Advisory Panel", "url": "https://www.fraudadvisorypanel.org/events-training/"},
+    {"name": "Fraud Advisory Panel", "url": "https://www.fraudadvisorypanel.org/feed"},
     {"name": "Manchester Law Society", "url": "https://manchesterlawsociety.org.uk/events-training/events/"},
     {"name": "Leeds Law Society", "url": "https://www.leedslawsociety.org.uk/events-training/events/"},
     {"name": "Liverpool Law Society", "url": "https://www.liverpoollawsociety.org.uk/events/"},
