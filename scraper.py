@@ -65,7 +65,7 @@ SOURCES = [
     {"name": "London Court of International Arbitration", "url": "https://www.lcia.org/lcia-events/events_schedule.aspx"},
     {"name": "Young International Arbitration Group", "url": "https://www.lcia.org/Membership/YIAG/Young_International_Arbitration_Group.aspx"},
     {"name": "International Chamber of Commerce", "url": "https://iccwbo.org/news-publications/events/"},
-    {"name": "ICC Young Arbitrators Forum", "url": "https://iccwbo.org/dispute-resolution/professional-development/young-arbitrators-forum-yaf/"},
+    {"name": "ICC Young Arbitration and ADR Forum (YAAF)", "url": "https://iccwbo.org/dispute-resolution/professional-development/yaaf-programme/"},
     {"name": "ICC United Kingdom", "url": "https://iccwbo.uk/collections/events"},
     {"name": "International Council for Commercial Arbitration", "url": "https://www.arbitration-icca.org/events"},
     {"name": "Young ICCA", "url": "https://www.youngicca.org/events"},
@@ -162,6 +162,24 @@ SOURCES = [
     # dispute/arbitration/integrity-relevant sessions if any appear.
     {"name": "Sport Resolutions", "url": "https://www.sportresolutions.com/annual-conference"},
     {"name": "LawInSport", "url": "https://www.lawinsport.com/sports-law-events/upcoming-events"},
+
+    # --- Additional bar/chambers/regional sources ---
+    # FLAGGED: manchesterlawsociety.org.uk/events-training/ (landing page)
+    # was requested, but the site's actual listing page — already in
+    # SOURCES above — is events-training/events/. Not added separately
+    # to avoid double-fetching the same underlying content; let me know
+    # if the landing page carries different listings and this should change.
+    # FLAGGED: pro-manchester and Brabners' events pages are general
+    # regional business/networking hubs (conferences, retail, care sector,
+    # games industry) — expect a low relevant-event hit rate, same caveat
+    # as the other regional law society sources.
+    {"name": "Chancery Bar Association", "url": "https://www.chba.org.uk/latest"},
+    {"name": "Women in the Law UK", "url": "https://www.womeninthelawuk.com/category/events/"},
+    {"name": "pro-manchester", "url": "https://www.pro-manchester.co.uk/events/"},
+    {"name": "Sanctions Conference Manchester", "url": "https://sanctionsconferencemanchester.com/attendees-%26-agenda"},
+    {"name": "AML Intelligence Boardroom Series", "url": "https://www.amlintelligence.com/boardroom-series/"},
+    {"name": "Brabners", "url": "https://www.brabners.com/events"},
+    {"name": "Littleton Chambers", "url": "https://littletonchambers.com/resources/events/"},
 ]
 
 # ---------------------------------------------------------------------------
