@@ -128,8 +128,10 @@ Return an array of events. If the page has no events, return [].
 
 RELEVANCE: Only include events whose primary subject matter is disputes,
 litigation, arbitration, mediation, internal or regulatory investigations,
-financial crime (AML, sanctions, ABC/bribery, fraud, market abuse, tax
-evasion, export controls), asset recovery, or enforcement.
+white collar crime, financial crime (AML, sanctions, ABC/bribery, fraud,
+market abuse, tax evasion, export controls), contentious insolvency,
+asset tracing and recovery, accounting misstatement or restatement,
+regulatory enforcement, or compliance.
 Exclude general corporate, M&A, tax, employment, IP, real estate, ESG.
 
 If the event's end date is before today's date, set relevant=false.
@@ -154,7 +156,7 @@ SCHEMA per event (all keys required):
   "country": "string or ''",
   "region": "UK | Europe | North America | APAC | MENA | LATAM | Africa | Global",
   "format": "In-person | Virtual | Hybrid",
-  "topics": ["array from: Investigations, FCPA, ABC, Bribery, Fraud, AML, Sanctions, Export Controls, Financial Crime, Market Abuse, Tax Evasion, Asset Recovery, Enforcement, Disputes, Litigation, Arbitration, Mediation, Compliance, Policy, Networking"],
+  "topics": ["array from: Investigations, White Collar Crime, FCPA, ABC, Bribery, Fraud, AML, Sanctions, Export Controls, Financial Crime, Market Abuse, Tax Evasion, Asset Tracing, Asset Recovery, Contentious Insolvency, Accounting Misstatement, Regulatory Enforcement, Enforcement, Disputes, Litigation, Arbitration, Mediation, Compliance, Policy, Networking"],
   "audience": "Junior | Mixed | Senior",
   "cost": "Free | Paid | Invite-only",
   "costDisplay": "string as shown on page (e.g. '£695', 'Free (members)', 'Register')",
