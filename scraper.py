@@ -480,6 +480,40 @@ def export_json(conn):
     print(f"✓ Wrote CSV mirror to {csv_path}")
 
 # ---------------------------------------------------------------------------
+# MANUAL EVENTS
+# ---------------------------------------------------------------------------
+# For sources the scraper can't fetch (blocked, JS-rendered, etc.), events can
+# be added by hand to manual_events.json in the repo root. Same schema as
+# scraped events (see SYSTEM_PROMPT SCHEMA above), minus the extraction-only
+# fields (confidence, relevant) which don't apply to hand-entered data.
+# Re-applied on every run, so entries persist indefinitely until you remove
+# them or their end date passes (same auto-expiry as scraped events).
+MANUAL_EVENTS_PATH = OUTPUT_DIR / "manual_events.json"
+
+def load_manual_events(conn) -> int:
+    if not MANUAL_EVENTS_PATH.exists():
+        return 0
+    try:
+        manual = json.loads(MANUAL_EVENTS_PATH.read_text())
+    except json.JSONDecodeError as e:
+        print(f"! manual_events.json is not valid JSON: {e}")
+        return 0
+    if not isinstance(manual, list):
+        print("! manual_events.json must contain a JSON array of event objects")
+        return 0
+
+    count = 0
+    for ev in manual:
+        source_name = ev.get("organiser") or "Manual entry"
+        source_url = ev.get("url") or ""
+        if upsert(conn, ev, source_name, source_url):
+            count += 1
+        else:
+            print(f"    ! skipped manual event (missing title/start?): {ev.get('title', '<untitled>')}")
+    conn.commit()
+    return count
+
+# ---------------------------------------------------------------------------
 # MAIN
 # ---------------------------------------------------------------------------
 def run():
@@ -537,6 +571,10 @@ def run():
     print(f"  {total_skipped} skipped (not relevant / low confidence / missing fields)")
     if FOLLOW_EVENT_LINKS:
         print(f"  {total_enriched} enriched with detail-page data")
+
+    manual_count = load_manual_events(conn)
+    if manual_count:
+        print(f"  {manual_count} manual events loaded from {MANUAL_EVENTS_PATH.name}")
 
     export_json(conn)
     conn.close()
