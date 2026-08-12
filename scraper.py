@@ -115,6 +115,23 @@ SOURCES = [
     {"name": "Jenner & Block", "url": "https://www.jenner.com/en/news-insights?nt=35920"},
     {"name": "Jones Day", "url": "https://www.jonesday.com/en/insights?tab=events"},
     {"name": "Quinn Emanuel", "url": "https://www.quinnemanuel.com/the-firm/news-events/"},
+
+    # --- Regional UK: Manchester / Leeds / Liverpool / Birmingham ---
+    # FLAGGED: these are general regional professional-body event pages, not
+    # topic-filtered feeds. Expect a lower relevant-event hit rate than the
+    # national/specialist sources above (e.g. law society pages carry a lot
+    # of social/networking content) — the existing RELEVANCE filter in
+    # SYSTEM_PROMPT will still discard anything off-topic, but confirm these
+    # are the right regional bodies for your purposes; there may be other
+    # Northern/Midlands-specific chambers, ICAEW forensic groups, or ACFE UK
+    # chapter pages worth adding that weren't verified here.
+    {"name": "R3 (Association of Business Recovery Professionals)", "url": "https://www.r3.org.uk/events-training/"},
+    {"name": "Insolvency Practitioners Association", "url": "https://insolvency-practitioners.org.uk/upcoming-events/"},
+    {"name": "Fraud Advisory Panel", "url": "https://www.fraudadvisorypanel.org/events-training/"},
+    {"name": "Manchester Law Society", "url": "https://manchesterlawsociety.org.uk/events-training/events/"},
+    {"name": "Leeds Law Society", "url": "https://www.leedslawsociety.org.uk/events-training/events/"},
+    {"name": "Liverpool Law Society", "url": "https://www.liverpoollawsociety.org.uk/events/"},
+    {"name": "Birmingham Law Society", "url": "https://birminghamlawsociety.co.uk/"},
 ]
 
 # ---------------------------------------------------------------------------
