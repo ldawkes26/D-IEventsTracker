@@ -145,6 +145,23 @@ SOURCES = [
     {"name": "London Fraud Forum", "url": "https://www.londonfraudforum.co.uk/event-bookings"},
     {"name": "ACFE Global Fraud Conference", "url": "https://www.fraudconference.com/"},
     {"name": "North West Fraud Forum", "url": "https://northwestfraudforum.co.uk/events"},
+
+    # --- Sports disputes, arbitration & integrity ---
+    # Scoped narrowly per user request: sports arbitration (CAS-adjacent),
+    # anti-doping, safeguarding investigations, integrity/corruption in
+    # sport. General commercial sports law (contracts, image rights,
+    # broadcasting) is NOT in scope here, and the RELEVANCE filter below
+    # has been updated accordingly — see SYSTEM_PROMPT changes.
+    # FLAGGED: Sport Resolutions' seminar listings are frequently empty
+    # ("no upcoming seminars at this time" at time of writing) — this
+    # source may return few or no events between conference cycles.
+    # FLAGGED: LawInSport's general events page mixes disputes/integrity
+    # content with commercial sports law (Football Law, Motorsport,
+    # Risk & Insurance conferences) — expect the RELEVANCE filter to
+    # discard most of what's listed there, keeping only genuinely
+    # dispute/arbitration/integrity-relevant sessions if any appear.
+    {"name": "Sport Resolutions", "url": "https://www.sportresolutions.com/annual-conference"},
+    {"name": "LawInSport", "url": "https://www.lawinsport.com/sports-law-events/upcoming-events"},
 ]
 
 # ---------------------------------------------------------------------------
@@ -161,8 +178,14 @@ litigation, arbitration, mediation, internal or regulatory investigations,
 white collar crime, financial crime (AML, sanctions, ABC/bribery, fraud,
 market abuse, tax evasion, export controls), contentious insolvency,
 asset tracing and recovery, accounting misstatement or restatement,
-regulatory enforcement, or compliance.
-Exclude general corporate, M&A, tax, employment, IP, real estate, ESG.
+regulatory enforcement, compliance, or sports-specific disputes and
+integrity matters (Court of Arbitration for Sport / CAS arbitration,
+anti-doping proceedings, safeguarding investigations, match-fixing or
+corruption in sport).
+Exclude general corporate, M&A, tax, employment, IP, real estate, ESG,
+and general commercial sports law (player contracts, image rights,
+sponsorship, broadcasting, transfers) that does not concern a dispute,
+arbitration, or integrity investigation.
 
 If the event's end date is before today's date, set relevant=false.
 
@@ -186,7 +209,7 @@ SCHEMA per event (all keys required):
   "country": "string or ''",
   "region": "UK | Europe | North America | APAC | MENA | LATAM | Africa | Global",
   "format": "In-person | Virtual | Hybrid",
-  "topics": ["array from: Investigations, White Collar Crime, FCPA, ABC, Bribery, Fraud, AML, Sanctions, Export Controls, Financial Crime, Market Abuse, Tax Evasion, Asset Tracing, Asset Recovery, Contentious Insolvency, Accounting Misstatement, Regulatory Enforcement, Enforcement, Disputes, Litigation, Arbitration, Mediation, Compliance, Policy, Networking"],
+  "topics": ["array from: Investigations, White Collar Crime, FCPA, ABC, Bribery, Fraud, AML, Sanctions, Export Controls, Financial Crime, Market Abuse, Tax Evasion, Asset Tracing, Asset Recovery, Contentious Insolvency, Accounting Misstatement, Regulatory Enforcement, Enforcement, Disputes, Litigation, Arbitration, Mediation, Compliance, Policy, Sports Arbitration, Sports Integrity, Networking"],
   "audience": "Junior | Mixed | Senior",
   "cost": "Free | Paid | Invite-only",
   "costDisplay": "string as shown on page (e.g. '£695', 'Free (members)', 'Register')",
