@@ -132,6 +132,19 @@ SOURCES = [
     {"name": "Leeds Law Society", "url": "https://www.leedslawsociety.org.uk/events-training/events/"},
     {"name": "Liverpool Law Society", "url": "https://www.liverpoollawsociety.org.uk/events/"},
     {"name": "Birmingham Law Society", "url": "https://birminghamlawsociety.co.uk/"},
+
+    # --- Investigations & asset recovery conference ---
+    {"name": "London International Investigations and Asset Recovery Conference (LIIARC)", "url": "https://www.liiarc.co.uk/copy-of-schedule-2026"},
+    {"name": "OffshoreAlert", "url": "https://www.offshorealert.com/events/"},
+
+    # --- Fraud forums / conferences ---
+    # FLAGGED: fraudconference.com (ACFE Global Fraud Conference) is a single
+    # large annual US-based conference (Boston 2026), not a general UK-facing
+    # feed — included as requested, but note it's a different profile from
+    # the regional/UK forums below.
+    {"name": "London Fraud Forum", "url": "https://www.londonfraudforum.co.uk/event-bookings"},
+    {"name": "ACFE Global Fraud Conference", "url": "https://www.fraudconference.com/"},
+    {"name": "North West Fraud Forum", "url": "https://northwestfraudforum.co.uk/events"},
 ]
 
 # ---------------------------------------------------------------------------
