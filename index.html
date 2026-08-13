@@ -1144,18 +1144,18 @@ function renderKPIs() {
   const ukEvents = ukInPerson.length;
   const free = upcoming.filter(e => e.cost === "Free").length;
 
-  // Top UK in-person cities by event count, capped at 3. Cities with an
-  // empty string (some source records have no city set) are excluded from
-  // the label but still counted in ukEvents above.
+  // All UK cities with at least one upcoming in-person event, ordered by
+  // event count (most active first). Cities with an empty string (some
+  // source records have no city set) are excluded from the label but
+  // still counted in ukEvents above. No cap: every city is listed.
   const ukCityCounts = {};
   ukInPerson.forEach(e => { if (e.city) ukCityCounts[e.city] = (ukCityCounts[e.city] || 0) + 1; });
-  const topUkCities = Object.entries(ukCityCounts)
+  const allUkCities = Object.entries(ukCityCounts)
     .sort((a, b) => b[1] - a[1])
-    .slice(0, 3)
     .map(([city]) => city);
-  const ukCitiesLabel = topUkCities.length === 0 ? "—"
-    : topUkCities.length === 1 ? topUkCities[0]
-    : topUkCities.slice(0, -1).join(", ") + " &amp; " + topUkCities[topUkCities.length - 1];
+  const ukCitiesLabel = allUkCities.length === 0 ? "—"
+    : allUkCities.length === 1 ? allUkCities[0]
+    : allUkCities.slice(0, -1).join(", ") + " &amp; " + allUkCities[allUkCities.length - 1];
 
   $("#kpi-row").innerHTML = `
     <div class="kpi"><div class="kpi-label">Upcoming events</div><div class="kpi-value">${upcoming.length}</div><div class="kpi-sub">Across ${SOURCES.length} sources</div></div>
