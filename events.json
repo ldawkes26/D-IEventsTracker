@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-12T12:43:12.822075Z",
-  "event_count": 91,
+  "generated_at": "2026-08-13T11:08:30.196431Z",
+  "event_count": 93,
   "sources": [
     {
       "name": "Global Investigations Review",
@@ -39,8 +39,8 @@
       "url": "https://iccwbo.org/news-publications/events/"
     },
     {
-      "name": "ICC Young Arbitrators Forum",
-      "url": "https://iccwbo.org/dispute-resolution/professional-development/young-arbitrators-forum-yaf/"
+      "name": "ICC Young Arbitration and ADR Forum (YAAF)",
+      "url": "https://iccwbo.org/dispute-resolution/professional-development/yaaf-programme/"
     },
     {
       "name": "ICC United Kingdom",
@@ -224,7 +224,7 @@
     },
     {
       "name": "Fraud Advisory Panel",
-      "url": "https://www.fraudadvisorypanel.org/events-training/"
+      "url": "https://www.fraudadvisorypanel.org/feed"
     },
     {
       "name": "Manchester Law Society",
@@ -269,6 +269,34 @@
     {
       "name": "LawInSport",
       "url": "https://www.lawinsport.com/sports-law-events/upcoming-events"
+    },
+    {
+      "name": "Chancery Bar Association",
+      "url": "https://www.chba.org.uk/latest"
+    },
+    {
+      "name": "Women in the Law UK",
+      "url": "https://www.womeninthelawuk.com/category/events/"
+    },
+    {
+      "name": "pro-manchester",
+      "url": "https://www.pro-manchester.co.uk/events/"
+    },
+    {
+      "name": "Sanctions Conference Manchester",
+      "url": "https://sanctionsconferencemanchester.com/attendees-%26-agenda"
+    },
+    {
+      "name": "AML Intelligence Boardroom Series",
+      "url": "https://www.amlintelligence.com/boardroom-series/"
+    },
+    {
+      "name": "Brabners",
+      "url": "https://www.brabners.com/events"
+    },
+    {
+      "name": "Littleton Chambers",
+      "url": "https://littletonchambers.com/resources/events/"
     }
   ],
   "events": [
@@ -1158,6 +1186,27 @@
       "summary": "Cross-jurisdictional seminar on managing legal privilege and professional secrecy when using AI tools. Examines recent US and English court decisions on privilege loss from incautious AI use. Features perspectives from US, England, UAE, and Germany on protecting sensitive documents."
     },
     {
+      "id": "EVT-2F52EC439C",
+      "title": "A&M Manchester D&I Launch Party",
+      "organiser": "Alvarez & Marsal",
+      "start": "2026-09-30",
+      "end": "2026-09-30",
+      "city": "Manchester",
+      "country": "UK",
+      "region": "UK",
+      "format": "In-person",
+      "topics": [
+        "Disputes",
+        "Investigations"
+      ],
+      "audience": "Mixed",
+      "cost": "Free",
+      "costDisplay": "Free",
+      "url": "https://events.alvarezandmarsal.com/Celebrating-DI-North-West",
+      "flags": [],
+      "summary": "To celebrate launching the Disputes & Investigations offering in Manchester, we are holding a kick-off / late summer party on Wednesday 30 September at our Manchester office."
+    },
+    {
       "id": "EVT-81F3B19CAC",
       "title": "The Digital Assets Summit",
       "organiser": "Hogan Lovells",
@@ -1582,6 +1631,28 @@
       "url": "https://www.lcia.org/lcia-events/events_schedule.aspx",
       "flags": [],
       "summary": "Interactive symposium during New York Arbitration Week, following the traditional LCIA Tylney-style format."
+    },
+    {
+      "id": "EVT-069F54B41E",
+      "title": "Littleton Chambers Sports Conference",
+      "organiser": "Littleton Chambers",
+      "start": "2026-11-05",
+      "end": "2026-11-05",
+      "city": "Manchester",
+      "country": "UK",
+      "region": "UK",
+      "format": "In-person",
+      "topics": [
+        "Disputes",
+        "Sports Arbitration",
+        "Sports Integrity"
+      ],
+      "audience": "Mixed",
+      "cost": "Paid",
+      "costDisplay": "£439.49",
+      "url": "https://littletonchambers.com/event/sports-law-conference-2026/",
+      "flags": [],
+      "summary": "Through keynote addresses and panel discussions, delegates will hear from leading voices across the sports industry and gain practical insights into the challenges and opportunities facing clubs, governing bodies, athletes, agents and advisers."
     },
     {
       "id": "EVT-587E75B579",
